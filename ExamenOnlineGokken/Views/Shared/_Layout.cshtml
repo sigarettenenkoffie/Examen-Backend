@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - [Derynck Hannes]</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container" id="appContainer">
+        <header class="row">
+            <h1 class="col">Better Online Bets</h1>
+        </header>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">All Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/FindByLeagueId">By League</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/Home/Search">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/AddGame">Add Game</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Bet" asp-action="ShowBets" class="btn btn-info btn-sm">
+                         Your Bets: 0  </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="row mt-5">
+            <aside class="col-4">
+                <h3>Leagues</h3>
+                @await Component.InvokeAsync("LeagueListView")
+            </aside>
+            <main class="col-8">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+</body>
+</html>

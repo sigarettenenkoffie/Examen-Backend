@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ExamenOnlineGokken.ViewModels.Components.NavigationLinkVM>
+@{
+    ViewData["Title"] = "Default";
+}
+
+<div class="list-group">
+    @foreach (var navlink in Model)
+    {
+        <a class="list-group-item list-group-item-action" asp-controller="@navlink.Controller" asp-action="@navlink.Action" asp-route-id="@navlink.RouteId">@navlink.Text</a>
+    }
+</div>
+
